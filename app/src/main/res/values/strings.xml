@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">IntentsLearning</string>
+    <string name="sendmessage_edittexthint">Message to Send</string>
+    <string name="sendmessage_buttonsendtext">Send</string>
+    <string name="sendmessage_buttonsharetext">Share Message</string>
+    <string name="receivemessage_buttonreturntext">Send another message</string>
 </resources>

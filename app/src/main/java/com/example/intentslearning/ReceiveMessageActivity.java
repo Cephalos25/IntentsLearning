@@ -25,6 +25,7 @@ public class ReceiveMessageActivity extends AppCompatActivity {
         buttonSendAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent sendAgainIntent = new Intent(ReceiveMessageActivity.this, SendMessageActivity.class);
             }
         });
     }

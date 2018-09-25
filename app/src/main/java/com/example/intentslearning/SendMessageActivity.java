@@ -13,6 +13,7 @@ public class SendMessageActivity extends AppCompatActivity {
 
     private EditText editTextMessage;
     private Button buttonSendMessage;
+    private Button buttonShareMessage;
 
     ConstraintLayout bgelement;
 
@@ -29,11 +30,22 @@ public class SendMessageActivity extends AppCompatActivity {
                 // get the text
                 String message = editTextMessage.getText().toString();
                 // create the intent
-                Intent sendMessageIntent = new Intent(SendMessageActivity.this, ReceiveMessageActivity.class);
+                Intent sendIntent = new Intent(SendMessageActivity.this, ReceiveMessageActivity.class);
                 // package text to intent
-                sendMessageIntent.putExtra(EXTRA_MESSAGE, message);
+                sendIntent.putExtra(EXTRA_MESSAGE, message);
                 // start the new activity
-                startActivity(sendMessageIntent);
+                startActivity(sendIntent);
+            }
+        });
+        buttonShareMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // make intent w/ desired action
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                // set data type of stuff to be packaged
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(EXTRA_MESSAGE, editTextMessage.getText().toString());
+                startActivity(shareIntent);
             }
         });
     }
@@ -41,5 +53,6 @@ public class SendMessageActivity extends AppCompatActivity {
     private void wireWidgets() {
         editTextMessage = findViewById(R.id.editText_sendmessage_msg);
         buttonSendMessage = findViewById(R.id.button_sendmessage_send);
+        buttonShareMessage = findViewById(R.id.button_sendmessage_share);
     }
 }
