@@ -44,7 +44,7 @@ public class SendMessageActivity extends AppCompatActivity {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 // set data type of stuff to be packaged
                 shareIntent.setType("text/plain");
-                shareIntent.putExtra(EXTRA_MESSAGE, editTextMessage.getText().toString());
+                shareIntent.putExtra(Intent.EXTRA_TEXT, editTextMessage.getText().toString());
                 startActivity(shareIntent);
             }
         });
